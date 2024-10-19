@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lipsita, I Love You</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background: linear-gradient(135deg, #ffcccb 0%, #ff99cc 100%);
+            background-size: cover;
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1, p {
+            font-size: 48px;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+        }
+
+        .heart-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://www.transparenttextures.com/patterns/heart-pattern.png');
+            opacity: 0.3;
+            z-index: -1;
+        }
+
+        .gif-container {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .button {
+            background-color: #ff4081;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            padding: 10px 20px;
+            font-size: 24px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 20px;
+        }
+
+        .button:hover {
+            background-color: #ff1f5b;
+        }
+
+        #second-page, #third-page {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #third-page {
+            padding: 20px;
+        }
+
+        .heart {
+            font-size: 72px;
+            color: red;
+        }
+
+        .secret-code-input {
+            border: none;
+            border-radius: 20px;
+            padding: 10px;
+            font-size: 24px;
+            width: 60%;
+            max-width: 400px;
+            margin-top: 20px;
+        }
+
+        .animated-paragraph {
+            font-size: 24px;
+            color: white;
+            margin: 20px 0;
+            opacity: 0;
+            transition: opacity 2s ease-in-out;
+            text-align: left;
+            max-width: 600px;
+        }
+
+        #third-page h1 {
+            font-size: 36px;
+        }
+
+        #third-page p {
+            font-size: 20px;
+            text-align: center;
+        }
+
+        .gif-container {
+            max-width: 500px;
+            width: 100%;
+            margin: 20px auto;
+        }
+
+        .decision-buttons {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .decision-button {
+            width: 150px;
+            margin: 10px;
+        }
+
+        .small-gif-container {
+            width: 35%; /* Set the width to 35% */
+            margin: 0 auto;
+        }
+/* Style for the plea box */
+.plea-box {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(135deg, #ffb6c1, #ffcccb); /* Light pink gradient */
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    z-index: 10;
+    width: 80%;
+    max-width: 400px;
+}
+
+.plea-box p {
+    font-size: 18px;
+    color: #333;
+    margin-top: 15px;
+}
+
+.plea-box button {
+    margin-top: 15px;
+}
+
+/* Style for the GIF container inside the plea box */
+.plea-box .gif-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+    </style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fireworks-js/dist/fireworks.min.js"></script></head>
+<body>
+
+    <div class="heart-bg"></div>
+
+    <div id="first-page">
+        <h1>Lipsita, I love you ❣️</h1>
+
+        <div class="gif-container">
+            <div class="tenor-gif-embed" data-postid="15739559390318719326" data-share-method="host" data-aspect-ratio="1.0641" data-width="30%">
+                <a href="https://tenor.com/view/heart-gif-15739559390318719326">Heart Sticker</a> from 
+                <a href="https://tenor.com/search/heart-stickers">Heart Stickers</a>
+            </div>
+            <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+        </div>
+
+        <button class="button" onclick="showSecondPage()">Click Me...! 🙃</button>
+    </div>
+
+    <div id="second-page">
+        <h1>Happy Bestfriend Day Gadhi...!</h1>
+        <p class="heart">❣️</p>
+
+        <input type="text" class="secret-code-input" placeholder="Enter secret code here">
+        
+        <button class="button" onclick="checkSecretCode()">Submit Code</button>
+    </div>
+
+    <div id="third-page">
+        <h1 id="love-message-title" onclick="showLoveMessage()">I love you so so so so so much 💕</h1>
+        <p class="heart">❣️</p>
+
+        <div class="small-gif-container" id="gif-display"></div>
+
+        <p class="animated-paragraph" id="love-message">
+            Ur just mine ❤️.......! Will u give ur sath lifetime to me. I promise I will always try to keep u happy 🥰. I will hold ur hands in every situation. I will be urs even everyone is against u. I will give my all efforts to make ur life beautiful.......💕 Will u be my life partner ❤️ Will u be my girl.....!
+        </p>
+
+        <div class="decision-buttons">
+            <button class="button decision-button" id="yes-button" onclick="showYesBox()">Yes</button>
+          <button class="button decision-button" id="no-button" onclick="showPleaBox()">No</button>
+        </div>
+    </div>
+    <div id="plea-box" class="plea-box">
+    <div class="gif-container">
+    <div class="tenor-gif-embed" data-postid="12154043655874755618" data-share-method="host" data-aspect-ratio="1.23267" data-width="35%">
+    <a href="https://tenor.com/view/peach-and-goma-temper-tantrum-gif-12154043655874755618">Peach And Goma Temper Tantrum GIF</a> 
+    from <a href="https://tenor.com/search/peach+and+goma-gifs">Peach And Goma GIFs</a>
+    </div>
+    <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+    </div>
+    <p>Maan jaao na please 🥺 Mere jaisa pyara sa gadha kaha milega....! Please..........!</p>
+    <button class="button" onclick="closePleaBox()">Hmm..!</button>
+    </div>
+    <div id="yes-box" class="plea-box">
+    <p>Gadhi....❣️ur only mine. I know I do a lot of gussa but I really love u so much. I hurt u a lot still ur with me. Thank you for all ur support, ur love, ur care, ur affection and ur efforts to make our friendship the most beautiful. Thank u for being my mother and for taking my care. Thank you for being my bff and supporting in my worst situations. Thank you for being my girl and understand my feelings. I love you so much.......</p>
+    <p>I really love you so much 💕 love 💕💕</p>
+    
+    <div class="gif-container">
+    <div class="tenor-gif-embed" data-postid="12479679305028036341" data-share-method="host" data-aspect-ratio="1" data-width="35%">
+    <a href="https://tenor.com/view/goma-peach-gif-12479679305028036341">Goma Peach GIF</a> from 
+    <a href="https://tenor.com/search/goma+peach-gifs">Goma Peach GIFs</a>
+    </div>
+    <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+    </div>
+    
+   <button class="button" onclick="showListBox()">Gadhiii...!</button>
+    </div>
+    <div id="list-box" class="plea-box">
+    <div class="gif-container">
+    <div class="tenor-gif-embed" data-postid="15425317675359151712" data-share-method="host" data-aspect-ratio="1" data-width="35%">
+    <a href="https://tenor.com/view/goma-peach-gif-15425317675359151712">Goma Peach GIF</a> from 
+    <a href="https://tenor.com/search/goma+peach-gifs">Goma Peach GIFs</a>
+    </div>
+    <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+    </div>
+    
+    <p>Lipsu...❣️.....!</p>
+    
+    <ol style="text-align: left;">
+    <li>Hostel me apna khyal rakhna..!</li>
+    <li>Patha padhna..!</li>
+    <li>Mujhe yaaad karna...!</li>
+    <li>Kuch bhi ho toh yaad rakhna I'm always with u...!</li>
+    <li>Dusre ladko se mat milna na....!</li>
+    <li>Time pe khana khana....!</li>
+    <li>Time pe medicine lena</li>
+    <li>Hamesha khus rehna...!</li>
+
+    <li>Mujhse bohot sara pyar karna</li>
+    </ol>
+    
+    <p>I love you so much Lipsu....❣️</p>
+    
+   <button class="button" onclick="startFireworks()">U love me naa...!</button>
+    </div>
+
+    <script>
+        function showSecondPage() {
+            document.getElementById("first-page").style.display = "none";
+            document.getElementById("second-page").style.display = "flex";
+        }
+
+        function checkSecretCode() {
+            const input = document.querySelector('.secret-code-input').value;
+            const secretCode = "1020112";
+            if (input === secretCode) {
+                document.getElementById("second-page").style.display = "none";
+                document.getElementById("third-page").style.display = "flex";
+
+                const gifContainer = document.getElementById("gif-display");
+                gifContainer.innerHTML = `
+                    <div class="tenor-gif-embed" data-postid="258219253375303464" data-share-method="host" data-aspect-ratio="1.06667" data-width="100%">
+                        <a href="https://tenor.com/view/peach-and-goma-peach-goma-peach-cat-goma-goma-and-peach-gif-258219253375303464">Peach And Goma Peach Goma Sticker</a> from 
+                        <a href="https://tenor.com/search/peach+and+goma-stickers">Peach And Goma Stickers</a>
+                    </div>
+                `;
+                const script = document.createElement('script');
+                script.type = 'text/javascript';
+                script.async = true;
+                script.src = 'https://tenor.com/embed.js';
+                document.body.appendChild(script);
+            } else {
+                alert("Sahi wala try kar gaddhi.....!");
+            }
+        }
+
+        function showLoveMessage() {
+            const loveMessage = document.getElementById("love-message");
+            loveMessage.style.opacity = 1;
+        }
+        function showPleaBox() {
+        document.getElementById("plea-box").style.display = "block";
+        }
+        
+        function closePleaBox() {
+        document.getElementById("plea-box").style.display = "none";
+        }
+        function showYesBox() {
+        document.getElementById("yes-box").style.display = "block";
+        }
+        
+        function closeYesBox() {
+        document.getElementById("yes-box").style.display = "none";
+        }
+        function showListBox() {
+        document.getElementById("yes-box").style.display = "none";
+        document.getElementById("list-box").style.display = "block";
+        }
+        
+        function closeListBox() {
+        document.getElementById("list-box").style.display = "none";
+        }
+        function startFireworks() {
+        closeListBox(); // Close the list box first
+        // Start fireworks
+        const fireworks = new Fireworks(document.body, {
+        speed: 2,
+        acceleration: 1.05,
+        friction: 0.98,
+        gravity: 1,
+        particles: 100,
+        // Add more options as needed
+        });
+        fireworks.start();
+        }
+        function startFireworks() {
+        closeListBox(); // Close the list box first
+        
+        // Check if Fireworks is defined
+        if (typeof Fireworks !== "undefined") {
+        const fireworks = new Fireworks(document.body, {
+        speed: 2,
+        acceleration: 1.05,
+        friction: 0.98,
+        gravity: 1,
+        particles: 100,
+        });
+        fireworks.start();
+        } else {
+        console.error("Fireworks library is not loaded.");
+        }
+        }
+    </script>
+
+</body>
+</html>
